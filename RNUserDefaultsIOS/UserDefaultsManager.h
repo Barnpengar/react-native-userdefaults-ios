@@ -24,4 +24,6 @@
 
 + (bool)boolForKey:(NSString *)key;
 
++ (NSArray *)getAllKeys:(NSString *)key;
+
 @end

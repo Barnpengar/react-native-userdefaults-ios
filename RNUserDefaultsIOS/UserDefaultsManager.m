@@ -45,4 +45,9 @@
     return [[NSUserDefaults standardUserDefaults] boolForKey:key];
 }
 
++ (NSArray *)getAllKeys:(NSString *)key {
+    
+    return [[[NSUserDefaults standardUserDefaults] dictionaryRepresentation] allKeys];
+}
+
 @end
