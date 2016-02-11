@@ -13,6 +13,7 @@ var _objectForKey = Promise.promisify(UserDefaults.objectForKey);
 var _boolForKey = Promise.promisify(UserDefaults.boolForKey);
 
 var _removeItemForKey = Promise.promisify(UserDefaults.removeObjectForKey);
+var _getAllKeys = Promise.promisify(UserDefaults.getAllKeys);
 
 var UserDefaults = {
     setArrayForKey(array, key) {
@@ -41,6 +42,9 @@ var UserDefaults = {
     },
     removeItemForKey(key) {
         return _removeItemForKey(key);
+    },
+    getAllKeys(key) {
+        return _getAllKeys(key);
     }
 };
 
