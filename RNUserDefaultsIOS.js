@@ -1,19 +1,19 @@
 'use strict';
 
 var { NativeModules } = require('react-native');
-var Promise = require('bluebird'); // jshint ignore:line
+const promisify = require("es6-promisify")
 var UserDefaults = NativeModules.RNUserDefaultsIOS;
 
-var _setObjectForKey = Promise.promisify(UserDefaults.setObjectForKey);
-var _setBoolForKey = Promise.promisify(UserDefaults.setBoolForKey);
+var _setObjectForKey = promisify(UserDefaults.setObjectForKey);
+var _setBoolForKey = promisify(UserDefaults.setBoolForKey);
 
-var _arrayForKey = Promise.promisify(UserDefaults.arrayForKey);
-var _stringForKey = Promise.promisify(UserDefaults.stringForKey);
-var _objectForKey = Promise.promisify(UserDefaults.objectForKey);
-var _boolForKey = Promise.promisify(UserDefaults.boolForKey);
+var _arrayForKey = promisify(UserDefaults.arrayForKey);
+var _stringForKey = promisify(UserDefaults.stringForKey);
+var _objectForKey = promisify(UserDefaults.objectForKey);
+var _boolForKey = promisify(UserDefaults.boolForKey);
 
-var _removeItemForKey = Promise.promisify(UserDefaults.removeObjectForKey);
-var _getAllKeys = Promise.promisify(UserDefaults.getAllKeys);
+var _removeItemForKey = promisify(UserDefaults.removeObjectForKey);
+var _getAllKeys = promisify(UserDefaults.getAllKeys);
 
 var UserDefaults = {
     setArrayForKey(array, key) {
