@@ -10,37 +10,48 @@
 
 @implementation UserDefaultsManager
 
++ (NSUserDefaults *) gimiGroupDefaults {
+    return [[NSUserDefaults alloc] initWithSuiteName:@"group.gimi.dev"];
+}
+
 + (void)setObject:(id)object forKey:(NSString *)key {
     
-    return [[[NSUserDefaults alloc] initWithSuiteName:@"group.gimi.dev"] setObject:object forKey:key];
+    [[UserDefaultsManager gimiGroupDefaults] setObject:object forKey:key];
 }
 
 + (void)setBool:(bool)value forKey:(NSString *)key {
-    return [[[NSUserDefaults alloc] initWithSuiteName:@"group.gimi.dev"] setBool:value forKey:key];
+    
+    [[UserDefaultsManager gimiGroupDefaults] setBool:value forKey:key];
 }
 
 + (void)removeObjectForKey:(NSString *)key {
-    return [[[NSUserDefaults alloc] initWithSuiteName:@"group.gimi.dev"] removeObjectForKey:key];
+    
+    [[UserDefaultsManager gimiGroupDefaults] removeObjectForKey:key];
 }
 
 + (NSArray *)arrayForKey:(NSString *)key {
-    return [[[NSUserDefaults alloc] initWithSuiteName:@"group.gimi.dev"] arrayForKey:key];
+    
+    return [[UserDefaultsManager gimiGroupDefaults] arrayForKey:key];
 }
 
 + (NSString *)stringForKey:(NSString *)key {
-    return [[[NSUserDefaults alloc] initWithSuiteName:@"group.gimi.dev"] stringForKey:key];
+    
+    return [[UserDefaultsManager gimiGroupDefaults] stringForKey:key];
 }
 
 + (id)objectForKey:(NSString *)key {
-    return [[[NSUserDefaults alloc] initWithSuiteName:@"group.gimi.dev"] objectForKey:key];
+    
+    return [[UserDefaultsManager gimiGroupDefaults] objectForKey:key];
 }
 
 + (bool)boolForKey:(NSString *)key {
-    return [[[NSUserDefaults alloc] initWithSuiteName:@"group.gimi.dev"] boolForKey:key];
+    
+    return [[UserDefaultsManager gimiGroupDefaults] boolForKey:key];
 }
 
 + (NSArray *)getAllKeys:(NSString *)key {
-    return [[[[NSUserDefaults alloc] initWithSuiteName:@"group.gimi.dev"] dictionaryRepresentation] allKeys];
+    
+    return [[[UserDefaultsManager gimiGroupDefaults] dictionaryRepresentation] allKeys];
 }
 
 @end
