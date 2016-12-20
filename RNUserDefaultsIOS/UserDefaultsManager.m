@@ -11,7 +11,14 @@
 @implementation UserDefaultsManager
 
 + (NSUserDefaults *) gimiGroupDefaults {
-    return [[NSUserDefaults alloc] initWithSuiteName:@"group.gimi.dev"];
+    NSString *appGroupName = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"AppGroup"];
+    if (nil != appGroupName) {
+        // If we have specified an 'AppGroup' in Info.plist for our target, use this group
+        return [[NSUserDefaults alloc] initWithSuiteName:appGroupName];
+    } else {
+        // Default to regular NSUserDefaults
+        return [NSUserDefaults standardUserDefaults];
+    }
 }
 
 + (void)setObject:(id)object forKey:(NSString *)key {
